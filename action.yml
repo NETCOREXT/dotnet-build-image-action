@@ -110,15 +110,15 @@ runs:
           TAG_LATEST="latest"
         fi
 
-        echo "::set-output name=app::$APP"
-        echo "::set-output name=image::$IMAGE"
-        echo "::set-output name=tag::$TAG"
-        echo "::set-output name=tag-hash::$COMMIT_SHORT_SHA"
-        echo "::set-output name=tag-latest::$TAG_LATEST"
-        echo "::set-output name=build-options::$ADDITIONAL_ARGUMENTS"
-        echo "::set-output name=branch::$GITHUB_REF_NAME"
-        echo "::set-output name=actor::$USERNAME"
-        echo "::set-output name=email::$EMAIL"
+        echo "app=$APP" >> $GITHUB_OUTPUT
+        echo "image=$IMAGE" >> $GITHUB_OUTPUT
+        echo "tag=$TAG" >> $GITHUB_OUTPUT
+        echo "tag-hash=$COMMIT_SHORT_SHA" >> $GITHUB_OUTPUT
+        echo "tag-latest=$TAG_LATEST" >> $GITHUB_OUTPUT
+        echo "build-options=$ADDITIONAL_ARGUMENTS" >> $GITHUB_OUTPUT
+        echo "branch=$GITHUB_REF_NAME" >> $GITHUB_OUTPUT
+        echo "actor=$USERNAME" >> $GITHUB_OUTPUT
+        echo "email=$EMAIL" >> $GITHUB_OUTPUT
     - name: Create Dockerfile
       shell: bash
       run: |
